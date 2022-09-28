@@ -1,0 +1,50 @@
+@import '~antd/dist/antd.css';
+
+body {
+    background-color: white;
+}
+
+.card-scroll {
+    max-height: 890px;
+    overflow-y: auto;
+}
+
+.rate-margin {
+    li {
+        margin-right: 0px !important;
+    }
+}
+
+.new-comment {
+    cursor: pointer;
+    color: grey;
+    
+    .inner {
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        .label {
+            font-size: 32px;
+            margin-left: 10px;
+        }
+    }
+    &:hover {
+        color: #1890ff;
+    }
+}
+
+.logo {
+    height: 32px;
+    margin: 16px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    // background: rgba(255, 255, 255, 0.3);
+  }
+
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
