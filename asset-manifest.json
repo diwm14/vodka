@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vodka/static/css/main.73ef597c.css",
-    "main.js": "/vodka/static/js/main.b930668f.js",
+    "main.js": "/vodka/static/js/main.d39e6af8.js",
     "static/js/787.896d8831.chunk.js": "/vodka/static/js/787.896d8831.chunk.js",
     "index.html": "/vodka/index.html",
     "main.73ef597c.css.map": "/vodka/static/css/main.73ef597c.css.map",
-    "main.b930668f.js.map": "/vodka/static/js/main.b930668f.js.map",
+    "main.d39e6af8.js.map": "/vodka/static/js/main.d39e6af8.js.map",
     "787.896d8831.chunk.js.map": "/vodka/static/js/787.896d8831.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73ef597c.css",
-    "static/js/main.b930668f.js"
+    "static/js/main.d39e6af8.js"
   ]
 }
