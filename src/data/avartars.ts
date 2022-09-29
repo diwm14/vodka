@@ -13,10 +13,11 @@ export const getRandomAvartarNames = (numbers: number) => {
             randomAvartarNames.push(rn);
         }
     }
-
+    // https://diwm14.github.io/Schmoes/jolee.svg
+    // https://diwm14.github.io/vodka/static/css/main.73ef597c.css
     return avatarNames
         .filter((value: string, index:number) => randomAvartarNames.includes(index))
-        .map(v => `/Schmoes/${v}.svg`);
+        .map(v => `/vodka/Schmoes/${v}.svg`);
 }
 
 
