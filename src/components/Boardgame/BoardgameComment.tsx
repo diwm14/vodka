@@ -23,7 +23,7 @@ const BoardgameComment = ({boardgame, createdAt}: BoardgameCommentProps) => {
       ];
 
     return (
-          <Card>
+          <Card size="small">
             <Comment
                 actions={actions}
                 author={<a>{boardgame.author?.fields.name}</a>}

@@ -12,7 +12,7 @@ const difficultyDescriptions = ["매우 쉬움","쉬움","보통","어려움","�
 
 // 초록색 > 노란색 > 빨간색
 //#5bda98 //#ff6b26 //#df4751
-const colors = ['#5bda98', '#ff6b26', '#df4751'];
+const colors = ['#5bda98', '#ff6b26', '#df4751', '#1890ff'];
 
 interface BoardgameWithRateProps {
     item: CommentWithGroup
@@ -31,7 +31,7 @@ const BoardgameWithRate = ({item}: BoardgameWithRateProps) => {
     
     const evaluateColor = useMemo( ()=> (type: 'rating' | 'difficulty', score: number) => {
         if(type === RATING) {
-            return (score >= 4) ? colors[0] : (score >= 3) ? colors[1] : colors[2];    
+            return (score >= 4) ? colors[3] : (score >= 3) ? colors[1] : colors[2];    
         }else {
             return (score <= 2.5) ? colors[0] : (score <= 3.5)  ? colors[1] : colors[2];
         }
@@ -76,7 +76,7 @@ const BoardgameWithRate = ({item}: BoardgameWithRateProps) => {
             />
           }
         >
-          <List.Item.Meta title={item.title} description={item.comments[0]} />
+          <List.Item.Meta title={item.title} description={item.comments[Math.round(Math.random()*10000)%item.comments.length]} />
         </List.Item>
   );
 };
