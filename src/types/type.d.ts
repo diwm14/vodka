@@ -37,6 +37,17 @@ export interface BoardlifeBoardgame {
     'bbs_img': string;
 }
 
+export interface CommentWithGroup {
+    key: number,
+    title: string,
+    rating: number,
+    difficulty: number,
+    img: string,
+    comments: (string | undefined)[];
+    count: number
+}
+
+
 type CustomFormItemProps = {
     value?: any;
     onChange?: (value: any) => void

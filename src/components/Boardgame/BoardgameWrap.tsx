@@ -1,38 +1,36 @@
-import { Timeline } from "antd";
-import React, { useMemo } from "react";
-import useBoradgame from "../../hooks/useBoardgame";
-import BoardgameComment from "./BoardgameComment";
-import NewComment from "./NewComment";
-import { SmileOutlined } from "@ant-design/icons";
+import { BookOutlined, ThunderboltOutlined } from "@ant-design/icons";
+import { Spin, Tabs } from "antd";
+import React, { Suspense, useState } from "react";
+import BoardgameCommentTimeline from "./BoardgameCommentTimeline";
+import BoardgameListWithRate from "./BoardgameListWithRate";
 
-const colors = ["#00CCFF", "#e91e63", "orange"];
+const TAB_KEY_1 = "타임라인";
+const TAB_KEY_2 = "게임 별 평가";
+
+const tabList = [
+  {key: 1, label: <><ThunderboltOutlined />{TAB_KEY_1}</>, children: <BoardgameCommentTimeline />},
+  {key: 2, label: <><BookOutlined />{TAB_KEY_2}</>, children: <BoardgameListWithRate />},
+];
 
 const BoardgameWrap = () => {
-  const { boardgames } = useBoradgame();
+  const [tabkey, setTabkey] = useState(TAB_KEY_1);
 
-  const getColor = useMemo(() => {
-    return (index: number) => {
-      return colors[index % 3];
-    };
-  }, []);
+  const onTabChange = (key: string) => {
+    setTabkey(key);
+  };
 
   return (
-    <div style={{ backgroundColor: "ivory", padding: '40px 20px 20px' }}>
-      <Timeline>
-        <Timeline.Item color="green" dot={<SmileOutlined />}>
-          <NewComment />
-        </Timeline.Item>
-        {boardgames &&
-          boardgames.map((bg, index) => (
-            <Timeline.Item color={getColor(index)} dot={<SmileOutlined />}>
-              <BoardgameComment
-                boardgame={bg.fields}
-                createdAt={bg.sys.createdAt}
-              />
-            </Timeline.Item>
-          ))}
-      </Timeline>
-    </div>
+    <Suspense fallback={<Spin tip="Loading..."></Spin>}>
+      <div style={{padding: '40px', backgroundColor: 'ivory', minHeight: '100vh'}}>
+       <Tabs
+          size={'large'}
+          type="card"
+          onChange={onTabChange}
+          defaultActiveKey="1"
+          items={tabList}
+        />
+      </div>
+    </Suspense>
   );
 };
 

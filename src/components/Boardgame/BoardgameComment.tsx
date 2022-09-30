@@ -17,7 +17,7 @@ const BoardgameComment = ({boardgame, createdAt}: BoardgameCommentProps) => {
         <Divider type="vertical" />,
         <div>평점 : <RateForm disabled={true} defaultValue={boardgame.rating} /></div>,
         <Divider type="vertical" />,
-        <div>난이도 : <DifficultyForm disabled defaultValue={boardgame.difficulty} /></div>,
+        <div>난이도 : <DifficultyForm disabled={true} defaultValue={boardgame.difficulty} /></div>,
         <Divider type="vertical" />,
         <div>{moment(boardgame.playDate).format('YYYY-MM-DD')}</div>
       ];

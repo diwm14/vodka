@@ -35,7 +35,13 @@ const NewCommentModal = ({
     setConfirmLoading(true);
 
     try {
-        const values = await (form as any).validateFields();
+
+        if(!gameInfo) {
+          (form as any).resetFields(['title']);
+        }
+
+        const values = await (form as any)
+          .validateFields();
         
         // API 데이터로 가공
         // 게임 타이틀만 하려고 했는데, 그냥 게임 정보 다 넣어도 될 듯
@@ -55,11 +61,11 @@ const NewCommentModal = ({
         // 보드게임만 업데이트 해도 되긴 할텐데, 데이터 형식 맞추기 넘 귀찮
         update();
         (form as any).resetFields();        
+        onCreate();
     } catch(info) {
         console.log("Validate Failed:", info);
     } finally {
         setConfirmLoading(false);
-        onCreate();
     }
   };
 
@@ -80,7 +86,7 @@ const NewCommentModal = ({
           rules={[
             {
               required: true,
-              message: "보드게임을 입력해주세요",
+              message: "보드게임을 검색해주세요",
             },
           ]}
         >

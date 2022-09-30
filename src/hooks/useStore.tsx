@@ -5,7 +5,7 @@ import { ContentType, Entry } from 'contentful';
 import useMember from './useMember';
 import useContentType from "./useContentType";
 import useGroup from "./useGroup";
-import useBoradgame from "./useBoardgame";
+import useBoardgame from "./useBoardgame";
 
 const MEMBER = 'member';
 const GROUP = 'group';
@@ -28,7 +28,7 @@ const useStore = () => {
     const {setContentTypes} = useContentType();
     const {setMembers} = useMember();
     const {setGroups} = useGroup()
-    const {setBoardgames} = useBoradgame();
+    const {setBoardgames} = useBoardgame();
     const [loading, setLoading] = useState(true);
     const [forceUpdate, setForceUpdate] = useState(0);
 
